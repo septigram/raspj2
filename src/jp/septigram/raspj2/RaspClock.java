@@ -38,11 +38,12 @@ public class RaspClock extends JComponent {
 	Font _font2;
 	Thread _thread;
 	
-	long _intervalTick = 200;
+	long _intervalTick = 40;
 	
 	int _width = 320;
 	int _height = 240;
 	int _newsOffsetX;
+	int _scrollSpeed = 3;
 
 	long _lastClick;
 	long _doubleClickInterval = 500;
@@ -324,7 +325,7 @@ public class RaspClock extends JComponent {
 				_offsetX = 320;
 			}
 		}
-		_newsOffsetX -= 16;
+		_newsOffsetX -= _scrollSpeed;
 		if (now - _newsLastupdate > _newsUpdateInterval) {
 			_newsLastupdate = now;
 			new Thread(new Runnable() {

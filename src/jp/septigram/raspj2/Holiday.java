@@ -78,7 +78,9 @@ public class Holiday {
 			}
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd(EEE)", Locale.JAPAN);
 			while (cal.get(Calendar.YEAR) == y) {
-				System.out.println(sdf.format(cal.getTime()) + " " + holiday.getHoliday(cal));
+				if (holiday.getHoliday(cal) != null) {
+					System.out.println(sdf.format(cal.getTime()) + " " + holiday.getHoliday(cal));
+				}
 				cal.add(Calendar.DATE,  1);
 			}
 		}
